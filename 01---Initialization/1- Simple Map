@@ -1,1 +1,21 @@
-Map
+var map;
+$(document).ready(function () {
+    var latlng = new google.maps.LatLng(49.241943, -122.889318);
+    var myOptions = {
+        zoom: 12,
+        center: latlng,
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+});
+
+
+Demo:
+
+http://jsfiddle.net/Behseini/24KdV/
+
+
