@@ -1,0 +1,33 @@
+var map;
+var drawingManager
+$(document).ready(function () {
+    var latlng = new google.maps.LatLng(49.241943, -122.889318);
+    var myOptions = {
+        zoom: 12,
+        center: latlng,
+        disableDefaultUI: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    drawingManager = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: true,
+        drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+            google.maps.drawing.OverlayType.MARKER,
+            google.maps.drawing.OverlayType.CIRCLE,
+            google.maps.drawing.OverlayType.POLYGON,
+            google.maps.drawing.OverlayType.POLYLINE,
+            google.maps.drawing.OverlayType.RECTANGLE]
+        }
+    });
+    drawingManager.setMap(map);
+
+});
+
+Demo:
+
+http://jsfiddle.net/Behseini/J5Cqp/1/
